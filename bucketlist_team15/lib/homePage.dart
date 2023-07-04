@@ -28,9 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Luna828 git branch',
-            ),
+            const Text("Hello, World!"),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
