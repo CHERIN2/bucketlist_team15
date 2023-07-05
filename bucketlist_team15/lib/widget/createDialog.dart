@@ -1,3 +1,5 @@
+import 'package:bucketlist_team15/BucketList.dart';
+import 'package:bucketlist_team15/service/bucketList_service.dart';
 import 'package:flutter/material.dart';
 import '../homePage.dart';
 import '../service/bucketList_service.dart';
@@ -12,8 +14,7 @@ class createDialog extends StatefulWidget {
 }
 
 class _createDialogState extends State<createDialog> {
-  Function? onPressed;
-  final _textEditController = TextEditingController();
+  TextEditingController textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
