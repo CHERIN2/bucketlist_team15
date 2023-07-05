@@ -6,10 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.name});
-
-  final String name;
-
+  const MyHomePage({super.key});
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -31,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "${widget.name}님,\n꿈을 향해 걸어나가봐요!",
+                  "_님,\n꿈을 향해 걸어나가봐요!",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
                 ),
                 Expanded(
