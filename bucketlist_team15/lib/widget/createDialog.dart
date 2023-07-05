@@ -22,50 +22,52 @@ class _createDialogState extends State<createDialog> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         height: 150,
-        child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          SizedBox(height: 15),
-          SizedBox(
-            width: 250,
-            child: TextField(
-              controller: _textEditController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: '목표를 작성해주세요',
-              ),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  widget.service.createBucket(content: _textEditController.text);
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  "생성",
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
+              SizedBox(height: 15),
+              SizedBox(
+                width: 250,
+                child: TextField(
+                  controller: textController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: '목표를 작성해주세요',
+                  ),
                 ),
               ),
-              SizedBox(width: 10),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text(
-                  "취소",
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.red),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      widget.service.createBucket(content: textController.text);
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "생성",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.black),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      "취소",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.red),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ]),
+            ]),
       ),
     );
   }
