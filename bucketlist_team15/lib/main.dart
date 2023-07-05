@@ -1,9 +1,20 @@
+import 'package:bucketlist_team15/service/bucketList_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'homePage.dart';
 
-void main() {
-  runApp(const MyApp());
+late SharedPreferences prefs;
+
+void main() async {
+  prefs = await SharedPreferences.getInstance();
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (context) => BucketService())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
