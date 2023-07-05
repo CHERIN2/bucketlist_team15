@@ -11,7 +11,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Text(
                 "${widget.name}님,\n오늘하루도 화이팅 하세요",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w700
-                ),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
               ),
               Expanded(
                 child: ListView(
