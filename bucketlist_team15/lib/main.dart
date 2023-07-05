@@ -1,9 +1,20 @@
+import 'package:bucketlist_team15/service/bucketList_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'homePage.dart';
 
-void main() {
-  runApp(const MyApp());
+late SharedPreferences prefs;
+
+void main() async {
+  prefs = await SharedPreferences.getInstance();
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (context) => BucketService())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,27 +33,4 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(name: 'LUNA'),
     );
   }
-}
-
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-    ),
-    body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            'Luna828 git branch',
-          ),
-          Text(
-            '',
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-        ],
-      ),
-    ), // This trailing comma makes auto-formatting nicer for build methods.
-  );
 }
