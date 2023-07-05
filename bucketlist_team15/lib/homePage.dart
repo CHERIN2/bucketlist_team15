@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:bucketlist_team15/BucketList.dart';
+import 'package:bucketlist_team15/widget/bucketListTile.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -11,6 +12,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool? isChecked = false;
+
+  List<BucketList> bucketLists = [
+    BucketList(content: "유럽가기"),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,28 +26,16 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "${widget.name}님,\n오늘하루도 화이팅 하세요",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w700
-                ),
+                "${widget.name}님,\n꿈을 향해 걸어나가봐요!",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
               ),
               Expanded(
                 child: ListView(
                   children: [
-                    ListTile(
-                      leading: IconButton(
-                        icon: Icon(CupertinoIcons.pin),
-                        onPressed: () {},
-                      ),
-                      title: Text(
-                        "text",
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    )
+                    ...bucketListWidgets(),
                   ],
                 ),
               )
@@ -55,5 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  List<Widget> bucketListWidgets() {
+    List<Widget> lists = [];
+    for (BucketList bucketList in bucketLists) {
+      lists.add(bucketListTile(bucketList: bucketList));
+    }
+    return lists;
   }
 }
