@@ -23,6 +23,7 @@ class _bucketListTileState extends State<bucketListTile> {
     return ListTile(
       // checkBox
       leading: Checkbox(
+        fillColor: MaterialStatePropertyAll(Colors.cyan),
         value: bucketList!.isChecked,
         onChanged: (value) {
           bucketList!.isChecked = value!;
@@ -38,7 +39,7 @@ class _bucketListTileState extends State<bucketListTile> {
           IconButton(
             icon: Icon(Icons.edit),
             iconSize: 30,
-            onPressed: (){},
+            onPressed: () {},
             color: Colors.black,
           ),
           // 삭제
@@ -52,6 +53,7 @@ class _bucketListTileState extends State<bucketListTile> {
       ),
     );
   }
+
   State<bucketListTile> createState() => _bucketListTile();
 }
 
