@@ -1,3 +1,4 @@
+import 'package:bucketlist_team15/widget/createDialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Text(
                 "${widget.name}님,\n오늘하루도 화이팅 하세요",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w700
-                ),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
               ),
               Expanded(
                 child: ListView(
@@ -50,10 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return createDialog();
+              });
+        },
         tooltip: '버킷리스트 추가하기',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

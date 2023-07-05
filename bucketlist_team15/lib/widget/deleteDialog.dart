@@ -1,6 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget deleteDialog() {
-  return Dialog();
+class deleteDialog extends StatefulWidget {
+  const deleteDialog({super.key});
+
+  @override
+  State<deleteDialog> createState() => _deleteDialogState();
+}
+
+class _deleteDialogState extends State<deleteDialog> {
+  @override
+  Widget build(BuildContext context) {
+    return deleteDialog();
+  }
 }
