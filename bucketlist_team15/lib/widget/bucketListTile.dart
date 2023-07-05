@@ -51,37 +51,3 @@ class _bucketListTile extends State<bucketListTile> {
     );
   }
 }
-
-// @pragma('vm:entry-point')
-// Widget bucketListTile() {
-//   return ListTile(
-//     // checkBox
-//     leading: Checkbox(
-//       value: true,
-//        fillColor: MaterialStatePropertyAll(Colors.cyan),
-//       onChanged: (value) => {},
-//     ),
-//     // content
-//     title: Text("버킷리스트"),
-//     trailing: Row(
-//       mainAxisSize: MainAxisSize.min,
-//       children: [
-
-//         // 수정
-//         IconButton(
-//           icon: Icon(Icons.edit),
-//           iconSize: 30,
-//           onPressed: () {},
-//           color: Colors.black,
-//         ),
-//         // 삭제
-//         IconButton(
-//           icon: Icon(Icons.delete),
-//           iconSize: 30,
-//           onPressed: () {},
-//           color: Colors.red,
-//         ),
-//       ],
-//     ),
-//   );
-// }
