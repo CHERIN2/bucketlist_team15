@@ -8,6 +8,7 @@ import 'homePage.dart';
 late SharedPreferences prefs;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
   runApp(
     MultiProvider(
