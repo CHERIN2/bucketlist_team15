@@ -1,8 +1,5 @@
-import 'package:bucketlist_team15/BucketList.dart';
 import 'package:bucketlist_team15/service/bucketList_service.dart';
 import 'package:flutter/material.dart';
-import '../homePage.dart';
-import '../service/bucketList_service.dart';
 
 class createDialog extends StatefulWidget {
   const createDialog({super.key, required this.service});
@@ -14,7 +11,7 @@ class createDialog extends StatefulWidget {
 }
 
 class _createDialogState extends State<createDialog> {
-  TextEditingController textController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +24,7 @@ class _createDialogState extends State<createDialog> {
           SizedBox(
             width: 250,
             child: TextField(
-              controller: _textEditController,
+              controller: _textController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: '목표를 작성해주세요',
@@ -39,7 +36,7 @@ class _createDialogState extends State<createDialog> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  widget.service.createBucket(content: _textEditController.text);
+                  widget.service.createBucket(content: _textController.text);
                   Navigator.pop(context);
                 },
                 child: Text(

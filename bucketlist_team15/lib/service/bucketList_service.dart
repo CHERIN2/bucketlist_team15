@@ -11,7 +11,7 @@ class BucketService extends ChangeNotifier {
   }
 
   List<BucketList> bucketList = [
-    BucketList(content: "유럽 여행", isChecked: true),
+    BucketList(content: "유럽 여행", isChecked: false),
     BucketList(content: "취업 성공", isChecked: false)
   ];
 
@@ -33,7 +33,7 @@ class BucketService extends ChangeNotifier {
   // create
   createBucket({required String content}) {
     BucketList bucket = BucketList(content: content);
-    bucketList.add(bucket);
+    bucketList.insert(0, bucket);
     notifyListeners();
     saveBucket();
   }
@@ -49,6 +49,22 @@ class BucketService extends ChangeNotifier {
   updateBucket({required int index, required String content}) {
     BucketList bucket = bucketList[index];
     bucket.content = content;
+    notifyListeners();
+    saveBucket();
+  }
+
+  isCheckedBucket({required int index, required bool value}){
+    BucketList bucket = bucketList[index];
+    bucket.isChecked == !value;
+    if(bucket.isChecked){
+      bucketList = [
+        ...bucketList.where((element) => !element.isChecked),
+        ...bucketList.where((element) => element.isChecked)
+      ];
+    } else {
+      bucketList.removeAt(index);
+      bucketList.insert(0, bucket);
+    }
     notifyListeners();
     saveBucket();
   }

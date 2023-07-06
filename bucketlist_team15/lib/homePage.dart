@@ -17,7 +17,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Consumer<BucketService>(builder: (context, bucketService, child) {
       List<BucketList> bucketList = bucketService.bucketList;
       return Scaffold(
@@ -37,7 +36,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     itemCount: bucketList.length,
                     itemBuilder: (context, index) {
                       BucketList bucket = bucketList[index];
-                      return bucketListTile(bucketList: bucket);
+                      return bucketListTile(
+                        index: index,
+                      );
                     },
                   ),
                 )
