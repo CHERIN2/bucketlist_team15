@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:bucketlist_team15/BucketList.dart';
 import 'package:bucketlist_team15/main.dart';
 import 'package:flutter/material.dart';
@@ -53,10 +52,10 @@ class BucketService extends ChangeNotifier {
     saveBucket();
   }
 
-  isCheckedBucket({required int index, required bool value}){
+  isCheckedBucket({required int index, required bool value}) {
     BucketList bucket = bucketList[index];
     bucket.isChecked == !value;
-    if(bucket.isChecked){
+    if (bucket.isChecked) {
       bucketList = [
         ...bucketList.where((element) => !element.isChecked),
         ...bucketList.where((element) => element.isChecked)
@@ -65,6 +64,19 @@ class BucketService extends ChangeNotifier {
       bucketList.removeAt(index);
       bucketList.insert(0, bucket);
     }
+    notifyListeners();
+    saveBucket();
+  }
+
+  checkedBucket({required int index, required bool value}) {
+    BucketList bucket = bucketList[index];
+    bucket.isChecked = bucket.isChecked ? false : true;
+    bucketList.sort((first, second) {
+      if (first.isChecked) {
+        return 1;
+      }
+      return -1;
+    });
     notifyListeners();
     saveBucket();
   }

@@ -18,7 +18,7 @@ class _editDialogState extends State<editDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Container(
+      child: SizedBox(
         height: 150,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,10 +38,10 @@ class _editDialogState extends State<editDialog> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.black),
+                  ),
                   onPressed: () {
-                    print(
-                        "update : ${widget.service.bucketList.map((it) => it.content.toString())}");
-                    print("update index : ${widget.index}");
                     widget.service.updateBucket(
                         index: widget.index, content: textController.text);
                     Navigator.of(context).pop();
@@ -50,19 +50,18 @@ class _editDialogState extends State<editDialog> {
                     "수정",
                     style: TextStyle(color: Colors.white),
                   ),
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.black)),
                 ),
+                SizedBox(width: 10),
                 ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.red),
+                  ),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                   child: Text(
                     "취소",
                     style: TextStyle(color: Colors.white),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.red),
                   ),
                 ),
               ],
