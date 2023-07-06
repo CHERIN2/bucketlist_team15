@@ -44,6 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Color.fromARGB(225, 217, 183, 219),
           onPressed: () {
             showDialog(
                 context: context,
@@ -52,7 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
           },
           tooltip: '버킷리스트 추가하기',
-          child: const Icon(Icons.add),
+          child: const Icon(
+            Icons.add,
+            size: 30,
+          ),
         ),
       );
     });

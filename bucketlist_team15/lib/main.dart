@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BucketList_team15',
       theme: ThemeData(
+        scaffoldBackgroundColor: Color.fromARGB(255, 214, 205, 213),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
