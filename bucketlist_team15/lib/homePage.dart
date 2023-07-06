@@ -35,7 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: ListView.builder(
                     itemCount: bucketList.length,
                     itemBuilder: (context, index) {
-                      // BucketList bucket = bucketList[index];
                       return bucketListTile(index: index);
                     },
                   ),

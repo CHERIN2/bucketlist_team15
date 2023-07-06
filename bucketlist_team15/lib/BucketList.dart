@@ -14,7 +14,7 @@ class BucketList {
   factory BucketList.froJson(json) {
     return BucketList(
       content: json['content'],
-      isChecked: json['isChecked'],
+      isChecked: json['isChecked'] ?? false,
     );
   }
 }

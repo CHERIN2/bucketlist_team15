@@ -11,7 +11,7 @@ class createDialog extends StatefulWidget {
 }
 
 class _createDialogState extends State<createDialog> {
-  TextEditingController _textController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +31,8 @@ class _createDialogState extends State<createDialog> {
                     border: OutlineInputBorder(),
                     labelText: '목표를 작성해주세요',
                   ),
-                ),
-              ),
+            ),
+          ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

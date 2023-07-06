@@ -24,7 +24,10 @@ class _bucketListTileState extends State<bucketListTile> {
       leading: Checkbox(
         fillColor: MaterialStatePropertyAll(Colors.cyan),
         value: bucketService.bucketList[widget.index].isChecked,
-        onChanged: (value) {},
+        onChanged: (value) {
+          bucketService.bucketList[widget.index].isChecked = value!;
+          bucketService.isCheckedBucket(index: widget.index, value: value);
+        },
       ),
       // content
       title: Text(bucketService.bucketList[widget.index].content),
