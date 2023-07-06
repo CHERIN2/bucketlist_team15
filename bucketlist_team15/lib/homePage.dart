@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Bucket List",
+                  "Bucket  List",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
                 ),
                 Expanded(

@@ -52,6 +52,7 @@ class BucketService extends ChangeNotifier {
     saveBucket();
   }
 
+  // 은경
   isCheckedBucket({required int index, required bool value}) {
     BucketList bucket = bucketList[index];
     bucket.isChecked == !value;
@@ -68,7 +69,8 @@ class BucketService extends ChangeNotifier {
     saveBucket();
   }
 
-  checkedBucket({required int index, required bool value}) {
+  // 진훈
+  checkedBucket({required int index}) {
     BucketList bucket = bucketList[index];
     bucket.isChecked = bucket.isChecked ? false : true;
     bucketList.sort((first, second) {
