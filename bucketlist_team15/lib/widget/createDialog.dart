@@ -17,7 +17,7 @@ class _createDialogState extends State<createDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Container(
+      child: SizedBox(
         height: 150,
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,38 +31,36 @@ class _createDialogState extends State<createDialog> {
                     border: OutlineInputBorder(),
                     labelText: '목표를 작성해주세요',
                   ),
-            ),
-          ),
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.black),
+                    ),
                     onPressed: () {
                       widget.service
                           .createBucket(content: _textController.text);
-                      print(
-                          "create : ${widget.service.bucketList.map((it) => it.content.toString())}");
                       Navigator.pop(context);
                     },
                     child: Text(
                       "생성",
                       style: TextStyle(color: Colors.white),
                     ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.black),
-                    ),
                   ),
                   SizedBox(width: 10),
                   ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.red),
+                    ),
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
                     child: Text(
                       "취소",
                       style: TextStyle(color: Colors.white),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red),
                     ),
                   ),
                 ],

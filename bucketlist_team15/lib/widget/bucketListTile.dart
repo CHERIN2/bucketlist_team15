@@ -1,4 +1,3 @@
-import 'package:bucketlist_team15/BucketList.dart';
 import 'package:bucketlist_team15/service/bucketList_service.dart';
 import 'package:bucketlist_team15/widget/deleteDialog.dart';
 import 'package:bucketlist_team15/widget/editDialog.dart';
@@ -25,8 +24,11 @@ class _bucketListTileState extends State<bucketListTile> {
         fillColor: MaterialStatePropertyAll(Colors.cyan),
         value: bucketService.bucketList[widget.index].isChecked,
         onChanged: (value) {
-          bucketService.bucketList[widget.index].isChecked = value!;
-          bucketService.isCheckedBucket(index: widget.index, value: value);
+          // bucketService.bucketList[widget.index].isChecked = value!;
+          // bucketService.isCheckedBucket(index: widget.index, value: value);
+          bucketService.checkedBucket(
+              index: widget.index,
+              value: bucketService.bucketList[widget.index].isChecked);
         },
       ),
       // content
