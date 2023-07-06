@@ -11,7 +11,7 @@ class createDialog extends StatefulWidget {
 }
 
 class _createDialogState extends State<createDialog> {
-  TextEditingController textController = TextEditingController();
+  TextEditingController _textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _createDialogState extends State<createDialog> {
               SizedBox(
                 width: 250,
                 child: TextField(
-                  controller: textController,
+                  controller: _textController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: '목표를 작성해주세요',
@@ -38,7 +38,10 @@ class _createDialogState extends State<createDialog> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      widget.service.createBucket(content: textController.text);
+                      widget.service
+                          .createBucket(content: _textController.text);
+                      print(
+                          "create : ${widget.service.bucketList.map((it) => it.content.toString())}");
                       Navigator.pop(context);
                     },
                     child: Text(

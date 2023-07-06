@@ -35,9 +35,13 @@ class _editDialogState extends State<editDialog> {
               ),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
                   onPressed: () {
+                    print(
+                        "update : ${widget.service.bucketList.map((it) => it.content.toString())}");
+                    print("update index : ${widget.index}");
                     widget.service.updateBucket(
                         index: widget.index, content: textController.text);
                     Navigator.of(context).pop();
