@@ -1,9 +1,16 @@
 import 'package:bucketlist_team15/BucketList.dart';
+import 'package:bucketlist_team15/service/bucketList_service.dart';
+import 'package:bucketlist_team15/widget/editDialog.dart';
 import 'package:flutter/material.dart';
 
 class bucketListTile extends StatefulWidget {
-  bucketListTile({Key? key, required this.bucketList}) : super(key: key);
+  bucketListTile(
+      {Key? key, required this.service, this.bucketList, required this.index})
+      : super(key: key);
+
+  BucketService service;
   BucketList? bucketList;
+  int index;
 
   @override
   State<bucketListTile> createState() => _bucketListTileState();
@@ -39,7 +46,14 @@ class _bucketListTileState extends State<bucketListTile> {
           IconButton(
             icon: Icon(Icons.edit),
             iconSize: 30,
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return editDialog(
+                        service: widget.service, index: widget.index);
+                  });
+            },
             color: Colors.black,
           ),
           // 삭제
