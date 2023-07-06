@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -19,6 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Consumer<BucketService>(builder: (context, bucketService, child) {
       List<BucketList> bucketList = bucketService.bucketList;
+
       return Scaffold(
         body: SafeArea(
           child: Padding(
@@ -28,17 +28,14 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Bucket List",
+                  "_님,\n꿈을 향해 걸어나가봐요!",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
                 ),
                 Expanded(
                   child: ListView.builder(
                     itemCount: bucketList.length,
                     itemBuilder: (context, index) {
-                      BucketList bucket = bucketList[index];
-                      return bucketListTile(
-                        index: index,
-                      );
+                      return bucketListTile(index: index);
                     },
                   ),
                 )
