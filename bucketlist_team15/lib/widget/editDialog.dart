@@ -1,5 +1,6 @@
 import 'package:bucketlist_team15/service/bucketList_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class editDialog extends StatefulWidget {
   editDialog({super.key, required this.service, required this.index});
@@ -12,10 +13,11 @@ class editDialog extends StatefulWidget {
 }
 
 class _editDialogState extends State<editDialog> {
-  TextEditingController textController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: SizedBox(
@@ -27,10 +29,10 @@ class _editDialogState extends State<editDialog> {
             SizedBox(
               width: 250,
               child: TextField(
-                controller: textController,
+                controller: _textController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: '수정할 내용을 입력해주세요',
+                  labelText: widget.service.bucketList[widget.index].content,
                 ),
               ),
             ),
@@ -43,7 +45,7 @@ class _editDialogState extends State<editDialog> {
                   ),
                   onPressed: () {
                     widget.service.updateBucket(
-                        index: widget.index, content: textController.text);
+                        index: widget.index, content: _textController.text);
                     Navigator.of(context).pop();
                   },
                   child: Text(
