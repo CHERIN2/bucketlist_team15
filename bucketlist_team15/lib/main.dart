@@ -2,7 +2,6 @@ import 'package:bucketlist_team15/service/bucketList_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'homePage.dart';
 
 late SharedPreferences prefs;

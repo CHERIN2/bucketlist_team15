@@ -16,7 +16,7 @@ class _deleteDialogState extends State<deleteDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Container(
+      child: SizedBox(
         height: 150,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,9 +33,6 @@ class _deleteDialogState extends State<deleteDialog> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.black)),
                     onPressed: () {
-                      print(
-                          "delete : ${widget.service.bucketList.map((it) => it.content.toString())}");
-                      print("delete index : ${widget.index}");
                       widget.service.deleteBucket(index: widget.index);
                       Navigator.of(context).pop();
                     },
